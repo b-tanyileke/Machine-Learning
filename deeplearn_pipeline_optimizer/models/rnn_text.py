@@ -31,7 +31,4 @@ def build_rnn_model(vocab_size, embedding_dim, maxlen, gru_units, dropout_rate):
         Dense(1, activation="sigmoid") # for binary classification
     ])
 
-    # compile model
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-
     return model

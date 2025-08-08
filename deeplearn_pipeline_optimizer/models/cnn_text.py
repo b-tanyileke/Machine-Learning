@@ -32,7 +32,4 @@ def build_cnn_model(vocab_size, embedding_dim, maxlen, num_filters, kernel_size,
         Dense(1, activation="sigmoid") # for binary classification
     ])
 
-    # compile model
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-
     return model
