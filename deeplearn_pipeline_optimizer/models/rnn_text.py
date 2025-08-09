@@ -25,7 +25,7 @@ def build_rnn_model(vocab_size, embedding_dim, maxlen, gru_units, dropout_rate):
     # define model architecture
     model = Sequential([
         Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=maxlen),
-        GRU(gru_units),
+        GRU(gru_units, dropout=dropout_rate),
         Dropout(dropout_rate),
         Dense(10, activation="relu"),
         Dense(1, activation="sigmoid") # for binary classification

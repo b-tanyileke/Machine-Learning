@@ -4,7 +4,7 @@
 from tensorflow.keras.callbacks import EarlyStopping
 
 # define train function
-def train_eval(model, X_train, y_train,X_val=None, y_val=None,
+def train_eval(model, X_train, y_train,X_val, y_val,
                epochs=10, batch_size=64, use_early_stop=True):
     """
     Train the model and return evaluation metrics.
@@ -28,13 +28,13 @@ def train_eval(model, X_train, y_train,X_val=None, y_val=None,
 
     # create callback if necessary
     callbacks = []
-    if use_early_stop and X_val is not None:
+    if use_early_stop:
         callbacks.append(EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True))
 
     # fit model
     history = model.fit(
         X_train, y_train,
-        validation_data=(X_val, y_val) if X_val is not None else None,
+        validation_data=(X_val, y_val),
         epochs=epochs,
         batch_size=batch_size,
         callbacks=callbacks,
@@ -42,9 +42,6 @@ def train_eval(model, X_train, y_train,X_val=None, y_val=None,
     )
 
     # evaluate model
-    final_val_acc = None
-    final_val_loss = None
-    if X_val is not None:
-        final_val_loss, final_val_acc = model.evaluate(X_val, y_val, verbose=0)
+    final_val_loss, final_val_acc = model.evaluate(X_val, y_val, verbose=0)
 
     return history, final_val_acc, final_val_loss
