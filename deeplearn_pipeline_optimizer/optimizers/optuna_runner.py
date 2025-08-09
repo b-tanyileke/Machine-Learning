@@ -10,10 +10,10 @@ parameters such as kernel size or GRU units.
 
 # import necessary modules
 import optuna
-from deeplearn_pipeline_optimizer.data.imdb_loader import load_imdb_data
-from deeplearn_pipeline_optimizer.models.cnn_text import build_cnn_model
-from deeplearn_pipeline_optimizer.models.rnn_text import build_rnn_model
-from deeplearn_pipeline_optimizer.train.train_model import train_eval
+from data.imdb_loader import load_imdb_data
+from models.cnn_text import build_cnn_model
+from models.rnn_text import build_rnn_model
+from train.train_model import train_eval
 from tensorflow.keras.optimizers import Adam
 
 # define objective function
