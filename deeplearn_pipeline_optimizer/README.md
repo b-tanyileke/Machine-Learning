@@ -8,28 +8,26 @@ The project is structured as a proper Python package, making it easy to extend, 
 
 ## 📂 Project Structure
 
-project/
-│
-├── data/
-│ └── imdb_loader.py # Loads & preprocesses IMDB dataset
-│
-├── models/
-│ ├── cnn_text.py # CNN architecture for text classification
-│ └── rnn_text.py # RNN (LSTM) architecture for text classification
-│
-├── optimizers/
-│ └── optuna_runner.py # Optuna search space & optimization loop
-│
-├── train/
-│ └── train_model.py # Training & evaluation helper
-│
-├── main.py # CLI entry point
-├── requirements.txt
-└── README.md
+deeplearn_pipeline_optimizer/
 
-yaml
-Copy
-Edit
+    data/
+        imdb_loader.py  Loads & preprocesses IMDB dataset 
+
+    models/
+        cnn_text.py  CNN architecture for text classification
+        rnn_text.py  RNN (GRU) architecture for text classification
+
+    optimizers/
+        optuna_runner.py  Optuna search space & optimization loop
+
+    train/
+        train_model.py  Training & evaluation helper
+
+    main.py  CLI entry point
+
+    requirements.txt
+
+    README.md
 
 ---
 
@@ -68,7 +66,7 @@ Running Optuna optimization for model: cnn
 Number of trials: 15
 
 Best trial (cnn):
-  Accuracy: 0.8894
+    Accuracy: 0.8894
     embedding_dim: 128
     dropout_rate: 0.3
     learning_rate: 0.0005
